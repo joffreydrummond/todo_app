@@ -16,14 +16,14 @@ DROP TABLE IF EXISTS status;
 CREATE TABLE status(
 status_id int NOT NULL AUTO_INCREMENT,
 status char(50) NOT NULL,
-status_date datetime NOT NULL,
+status_date datetime NOT NULL DEFAULT(current_timestamp),
 PRIMARY KEY(status_id)
 );
 
 DROP TABLE IF EXISTS todos;
 CREATE TABLE todos(
 todo_id int NOT NULL AUTO_INCREMENT,
-created_date datetime NOT NULL,
+created_date datetime NOT NULL DEFAULT(current_timestamp),
 user_id int NOT NULL,
 status_id int NOT NULL,
 PRIMARY KEY(todo_id),
