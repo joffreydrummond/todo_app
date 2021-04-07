@@ -11,6 +11,8 @@ private static Connection conn;
             System.out.println("Establishing DB connection...");
             conn = DriverManager.getConnection(connString, "root", "password");
             System.out.println("Connected to DB successfully! Way to go.");
+
+
         } catch (SQLException throwables) {
             System.out.println("Error connecting to the DB. Debug time.");
             throwables.printStackTrace();
