@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class UserDao {
     private Connection conn;
     private User user;
-    private UserDao userDao;
+//    private UserDao userDao;
     private TodoDao todoDao;
     private final String SHOW_ALL_USERS = "SELECT * FROM users";
     private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
