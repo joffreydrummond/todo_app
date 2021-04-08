@@ -30,14 +30,15 @@ public class Todo {
     private static Connection conn;
 
     public static void addNewTodo() throws SQLException {
-        String query = "UPDATE todos SET todo_content = ? WHERE user_id = ?";
+        String query1 = "";
+        String query = "INSERT INTO todos (todo_content) VALUES(?) WHERE user_id = ?";
         Scanner scanner = new Scanner(System.in);
 
         try {
-            System.out.println("Enter the user ID where you want to add a todo.");
-            Integer userId = scanner.nextInt();
+//            System.out.println("Enter the user ID where you want to add a todo.");
+//            Int userId = scanner.nextInt();
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setInt(2, userId);
+//            ps.setInt(2, userId);
             System.out.println("Enter the todo details.");
             String todosContent = scanner.nextLine();
             ps.setString(1, todosContent);
