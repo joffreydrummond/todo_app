@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -33,7 +33,7 @@ public class User {
 
 
     public static Connection conn;
-    public static void selectAllUsers() throws SQLException {
+    public static void showAllUsers() throws SQLException {
         String query = "SELECT * FROM users";
         try {
             System.out.println("Querying all users from DB...");
@@ -80,6 +80,28 @@ public class User {
             throwables.printStackTrace();
         } finally {
             if (conn != null){
+                System.out.println("Closing the DB connection....");
+                conn.close();
+                System.out.println("DB connection has successfully disconnected.");
+            }
+        }
+    }
+
+    public static void deleteUser() throws SQLException {
+        String query = "DELETE FROM users WHERE user_id = ? ";
+        Scanner scan = new Scanner(System.in);
+        try {
+            System.out.println("Enter the user id of the user you want to delete: ");
+            Integer userId = scan.nextInt();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, userId);
+            ps.executeUpdate();
+            System.out.println("Entity.User was deleted successfully!");
+        } catch (SQLException throwables) {
+            System.out.println("Error when running deleteUser()");
+            throwables.printStackTrace();
+        } finally {
+            if (conn != null) {
                 System.out.println("Closing the DB connection....");
                 conn.close();
                 System.out.println("DB connection has successfully disconnected.");
