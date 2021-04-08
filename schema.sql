@@ -23,6 +23,7 @@ PRIMARY KEY(status_id)
 DROP TABLE IF EXISTS todos;
 CREATE TABLE todos(
 todo_id int NOT NULL AUTO_INCREMENT,
+todo_content char(255) not null,
 created_date datetime NOT NULL DEFAULT(current_timestamp),
 user_id int NOT NULL,
 status_id int NOT NULL,

@@ -1,7 +1,37 @@
+package Entity;
+
 import java.sql.*;
 import java.util.Scanner;
 
 public class User {
+    private int userId;
+    private String firstName;
+    private String lastName;
+    private String emailAddress;
+    private String phoneNumber;
+
+    public User(int userId, String firstName, String lastName, String emailAddress, String phoneNumber){
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static Connection conn;
     public static void selectAllUsers() throws SQLException {
         String query = "SELECT * FROM users";
@@ -10,7 +40,7 @@ public class User {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.getResultSet();
             while(rs.next()){
-                System.out.println("User ID: " + rs.getInt("user_id") + " First Name: " + rs.getString("first_name") + " Last Name: " +
+                System.out.println("Entity.User ID: " + rs.getInt("user_id") + " First Name: " + rs.getString("first_name") + " Last Name: " +
                         rs.getString("last_name") + "Email Address: " + rs.getString("email_address") + "Phone " +
                         "Number: " + rs.getString("phone_number"));
             }
@@ -58,4 +88,43 @@ public class User {
     }
 
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }
