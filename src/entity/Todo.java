@@ -13,6 +13,7 @@ public class Todo {
     private Date createdDate;
     private int userId;
     private int statusId;
+    private static Connection conn;
     private List<User> users;
     private List<Status> statuses;
 
@@ -37,7 +38,7 @@ public class Todo {
 //        this.statuses = statuses;
     }
 
-    private static Connection conn;
+
 
     public int getTodoId() {
         return todoId;

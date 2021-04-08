@@ -12,10 +12,11 @@ import java.util.Scanner;
 public class UserDao {
     private Connection conn;
     private User user;
-//    private UserDao userDao;
+    private List<Todo> todos;
     private TodoDao todoDao;
     private final String SHOW_ALL_USERS = "SELECT * FROM users";
     private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
+
 
     public UserDao() throws SQLException {
         conn = DBConnection.getConn();
@@ -26,15 +27,27 @@ public class UserDao {
         ResultSet rs = conn.prepareStatement(SHOW_ALL_USERS).executeQuery();
         List<User> users = new ArrayList<>();
         while (rs.next()) {
-            users.add(populateUsers(rs.getInt(1)));
+            users.add(populateUsers(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+             todos));
         }
+        System.out.println("Here is the list of all users.");
         return users;
+    }
+
+    public User getUserById(int userId) throws SQLException {
+        System.out.println("Enter the ID of the user you want to view.");
+        PreparedStatement ps = conn.prepareStatement(SHOW_USER_BY_ID);
+        ps.setInt(1, userId);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        return populateUsers(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+                todos);
+
     }
 
     private User populateUsers(int userId, String firstName, String lastName, String emailAddress, String phoneNumber
             , List<Todo> todos) throws SQLException {
         return new User(userId, firstName, lastName, emailAddress, phoneNumber, todoDao.getTodoByUserID(userId));
-
     }
 
 
@@ -52,20 +65,20 @@ public class UserDao {
 //        return null;
 //    }
 
-    public User populateUsers(int user_id) {
-        ResultSet rs = null;
-        try {
-            rs = conn.prepareStatement(SHOW_USER_BY_ID).executeQuery();
-            while (rs.next()) {
-                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-                        (List<Todo>) rs.getArray(6));
-            }
-            return user;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return null;
-    }
+//    public User populateUsers(int user_id) {
+//        ResultSet rs = null;
+//        try {
+//            rs = conn.prepareStatement(SHOW_USER_BY_ID).executeQuery();
+//            while (rs.next()) {
+//                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+//                        (List<Todo>) rs.getArray(6));
+//            }
+//            return user;
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return null;
+//    }
 
 
 //    public void showAllUsers() throws SQLException {

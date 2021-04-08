@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="set gettodobyuserid to return the user id that was passed through">
+    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="resolved the errors by creating list variable from todos class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/TodoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/TodoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Todo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Todo.java" afterDir="false" />
     </list>
@@ -150,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617920706193</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="resolved the errors by creating list variable from todos class">
+      <created>1617921439264</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617921439264</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -165,6 +172,7 @@
     <MESSAGE value="updated DB connection file" />
     <MESSAGE value="created populate user(s) methods. cleaned up code" />
     <MESSAGE value="set gettodobyuserid to return the user id that was passed through" />
-    <option name="LAST_COMMIT_MESSAGE" value="set gettodobyuserid to return the user id that was passed through" />
+    <MESSAGE value="resolved the errors by creating list variable from todos class" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolved the errors by creating list variable from todos class" />
   </component>
 </project>
