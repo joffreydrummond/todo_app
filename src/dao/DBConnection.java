@@ -23,6 +23,7 @@ public class DBConnection {
                 instance = new DBConnection(conn);
                 System.out.println("Connected to DB successfully! Way to go.");
             } catch (SQLException throwables) {
+                System.out.println("Error in connecting to DB....");
                 throwables.printStackTrace();
             } finally {
                 if (conn != null) {
@@ -32,26 +33,6 @@ public class DBConnection {
                 }
             }
         }
-
         return DBConnection.conn;
-
     }
-
-//        try {
-//        System.out.println("Establishing DB connection...");
-//        conn = DriverManager.getConnection(connString, "root", "password");
-//        System.out.println("Connected to DB successfully! Way to go.");
-//
-//
-//    } catch (SQLException throwables) {
-//        System.out.println("Error connecting to the DB. Debug time.");
-//        throwables.printStackTrace();
-//    }
-//        finally {
-//        if (conn != null) {
-//            System.out.println("Closing the DB connection....");
-//            conn.close();
-//            System.out.println("DB connection has successfully disconnected.");
-//        }
-//    }
 }

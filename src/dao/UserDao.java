@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Todo;
 import entity.User;
 
 import java.sql.*;
@@ -11,8 +12,8 @@ import java.util.Scanner;
 public class UserDao {
     private Connection conn;
     private User user;
-    private User user1;
     private UserDao userDao;
+    private TodoDao todoDao;
     private final String SHOW_ALL_USERS = "SELECT * FROM users";
     private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
 
@@ -20,26 +21,46 @@ public class UserDao {
         conn = DBConnection.getConn();
     }
 
-    public List<User> showUsers() throws SQLException {
+    public List<User> showAllUsers() throws SQLException {
+        System.out.println("Querying all users from DB...");
         ResultSet rs = conn.prepareStatement(SHOW_ALL_USERS).executeQuery();
-        List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
         while (rs.next()) {
-            users.add(populateUser(rs.getInt(1)));
+            users.add(populateUsers(rs.getInt(1)));
         }
         return users;
     }
 
+    private User populateUsers(int userId, String firstName, String lastName, String emailAddress, String phoneNumber
+            , List<Todo> todos) throws SQLException {
+        return new User(userId, firstName, lastName, emailAddress, phoneNumber, todoDao.getTodoByUserID(userId));
 
-    public User populateUser(int user_id){
+    }
 
-//        User user1;
+
+//    public User populateUser(int user_id){
+//        ResultSet rs = null;
+//        try {
+//            rs = conn.prepareStatement(SHOW_USER_BY_ID).executeQuery();
+//            while(rs.next()){
+//                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+//            }
+//            return user;
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return null;
+//    }
+
+    public User populateUsers(int user_id) {
         ResultSet rs = null;
         try {
             rs = conn.prepareStatement(SHOW_USER_BY_ID).executeQuery();
-            while(rs.next()){
-                user1 = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            while (rs.next()) {
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+                        (List<Todo>) rs.getArray(6));
             }
-            return user1;
+            return user;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -47,28 +68,28 @@ public class UserDao {
     }
 
 
-    public void showAllUsers() throws SQLException {
-        String query = "SELECT * FROM users";
-        try {
-            System.out.println("Querying all users from DB...");
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.getResultSet();
-            while (rs.next()) {
-                System.out.println("Entity.User ID: " + rs.getInt("user_id") + " First Name: " + rs.getString("first_name") + " Last Name: " +
-                        rs.getString("last_name") + "Email Address: " + rs.getString("email_address") + "Phone " +
-                        "Number: " + rs.getString("phone_number"));
-            }
-        } catch (SQLException throwables) {
-            System.out.println("Error when running SelectAllUsers()...");
-            throwables.printStackTrace();
-        } finally {
-            if (conn != null) {
-                System.out.println("Closing the DB connection....");
-                conn.close();
-                System.out.println("DB connection has successfully disconnected.");
-            }
-        }
-    }
+//    public void showAllUsers() throws SQLException {
+//        String query = "SELECT * FROM users";
+//        try {
+//            System.out.println("Querying all users from DB...");
+//            Statement stmt = conn.createStatement();
+//            ResultSet rs = stmt.getResultSet();
+//            while (rs.next()) {
+//                System.out.println("Entity.User ID: " + rs.getInt("user_id") + " First Name: " + rs.getString("first_name") + " Last Name: " +
+//                        rs.getString("last_name") + "Email Address: " + rs.getString("email_address") + "Phone " +
+//                        "Number: " + rs.getString("phone_number"));
+//            }
+//        } catch (SQLException throwables) {
+//            System.out.println("Error when running SelectAllUsers()...");
+//            throwables.printStackTrace();
+//        } finally {
+//            if (conn != null) {
+//                System.out.println("Closing the DB connection....");
+//                conn.close();
+//                System.out.println("DB connection has successfully disconnected.");
+//            }
+//        }
+//    }
 
     public void addNewUser() throws SQLException {
         String query = "INSERT INTO users(first_name, last_name, email_address, phone_number) VALUES(?,?,?,?)";

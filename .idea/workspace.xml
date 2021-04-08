@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="updated DB connection file">
+    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="created populate user(s) methods. cleaned up code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/app/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/DBConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/TodoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/TodoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/entity/Todo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/entity/Todo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/entity/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DBConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/TodoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/TodoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Todo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Todo.java" afterDir="false" />
@@ -138,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617902431377</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="created populate user(s) methods. cleaned up code">
+      <created>1617908547715</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617908547715</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -151,6 +165,7 @@
     <MESSAGE value="refactoring using app, entity, dao" />
     <MESSAGE value="created menu for user to choose options from" />
     <MESSAGE value="updated DB connection file" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated DB connection file" />
+    <MESSAGE value="created populate user(s) methods. cleaned up code" />
+    <option name="LAST_COMMIT_MESSAGE" value="created populate user(s) methods. cleaned up code" />
   </component>
 </project>

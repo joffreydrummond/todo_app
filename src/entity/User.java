@@ -1,6 +1,7 @@
 package entity;
 
 import java.sql.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class User {
@@ -9,15 +10,16 @@ public class User {
     private String lastName;
     private String emailAddress;
     private String phoneNumber;
+    private List<Todo> todoByUserId;
 
-    public User(int userId, String firstName, String lastName, String emailAddress, String phoneNumber){
+    public User(int userId, String firstName, String lastName, String emailAddress, String phoneNumber, List<Todo> todoByUserID){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
+        this.todoByUserId = todoByUserID;
     }
-
 
 
     public int getUserId() {
