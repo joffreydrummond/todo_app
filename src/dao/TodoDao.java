@@ -17,7 +17,8 @@ public class TodoDao {
     private User user;
     private List<Todo> todos;
     Scanner scan = new Scanner(System.in);
-    private final String GET_TODO_BY_USER_ID = "SELECT * FROM todos WHERE user_id = ?";
+    private final String GET_TODOS_BY_USER_ID = "SELECT * FROM todos WHERE user_id = ?";
+    private final String INSERT_TODO = "INSERT INTO todos (todo_content, user_id) VALUES(?, ?, ?)";
 
     public TodoDao() throws SQLException {
         conn = DBConnection.getConn();
@@ -26,14 +27,14 @@ public class TodoDao {
 
     public List<Todo> getTodoByUserID(int userId) throws SQLException {
         try {
-            PreparedStatement ps = conn.prepareStatement(GET_TODO_BY_USER_ID);
+            PreparedStatement ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
             System.out.println("Enter the user ID where you want to add a todo.");
             ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
             List<Todo> todos = new ArrayList<>();
 
             while (rs.next()){
-                todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(5), rs.getInt(6)));
+                todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5)));
             }
 
             if (user != null){

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="resolved the errors by creating list variable from todos class">
+    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="created showuserbyid method in the userdao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/app/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/DBConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/TodoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/TodoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/entity/Todo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/entity/Todo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/entity/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/TodoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/TodoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Todo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Todo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617921439264</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="created showuserbyid method in the userdao">
+      <created>1617923792873</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617923792873</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -173,6 +188,7 @@
     <MESSAGE value="created populate user(s) methods. cleaned up code" />
     <MESSAGE value="set gettodobyuserid to return the user id that was passed through" />
     <MESSAGE value="resolved the errors by creating list variable from todos class" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolved the errors by creating list variable from todos class" />
+    <MESSAGE value="created showuserbyid method in the userdao" />
+    <option name="LAST_COMMIT_MESSAGE" value="created showuserbyid method in the userdao" />
   </component>
 </project>

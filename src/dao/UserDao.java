@@ -13,9 +13,12 @@ public class UserDao {
     private Connection conn;
     private User user;
     private List<Todo> todos;
-    private TodoDao todoDao;
+    private TodoDao todoDao = new TodoDao();
     private final String SHOW_ALL_USERS = "SELECT * FROM users";
     private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
+    private final String DELETE_USER_BY_ID = "DELETE FROM users WHERE user_id = ? ";
+    private final String INSERT_NEW_USER = "INSERT INTO users(first_name, last_name, email_address, phone_number) VALUES" +
+            "(?,?,?,?)";
 
 
     public UserDao() throws SQLException {
@@ -34,8 +37,7 @@ public class UserDao {
         return users;
     }
 
-    public User getUserById(int userId) throws SQLException {
-        System.out.println("Enter the ID of the user you want to view.");
+    public User showUserById(int userId) throws SQLException {
         PreparedStatement ps = conn.prepareStatement(SHOW_USER_BY_ID);
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();

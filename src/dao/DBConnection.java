@@ -25,13 +25,14 @@ public class DBConnection {
             } catch (SQLException throwables) {
                 System.out.println("Error in connecting to DB....");
                 throwables.printStackTrace();
-            } finally {
-                if (conn != null) {
-                    System.out.println("Closing the DB connection....");
-                    conn.close();
-                    System.out.println("DB connection has successfully disconnected.");
-                }
             }
+//            finally {
+//                if (conn != null) {
+//                    System.out.println("Closing the DB connection....");
+//                    conn.close();
+//                    System.out.println("DB connection has successfully disconnected.");
+//                }
+//            }
         }
         return DBConnection.conn;
     }
