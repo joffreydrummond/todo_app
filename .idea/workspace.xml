@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="fixed show all users method. still throwing an error. so almost fixed">
+    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="added schema project to hold schema markup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/schema/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +47,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Joffrey New\Desktop\Promineo Tech - 2021\Week12\todo_app\src\schema" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -173,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617941355946</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added schema project to hold schema markup">
+      <created>1617986468572</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1617986468572</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +194,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added schema to create db and java gitignore" />
@@ -202,7 +211,8 @@
     <MESSAGE value="resolved the errors by creating list variable from todos class" />
     <MESSAGE value="created showuserbyid method in the userdao" />
     <MESSAGE value="fixed show all users method. still throwing an error. so almost fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed show all users method. still throwing an error. so almost fixed" />
+    <MESSAGE value="added schema project to hold schema markup" />
+    <option name="LAST_COMMIT_MESSAGE" value="added schema project to hold schema markup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -213,13 +223,8 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/dao/UserDao.java</url>
-          <line>30</line>
+          <line>32</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dao/UserDao.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -38,7 +38,7 @@ public class Menu {
         if (selection.equals("1")) {
           showAllUsers();
         } else if (selection.equals("2")) {
-          showUserByID();
+//          showUserByID();
         } else if (selection.equals("3")) {
           //                addNewUser();
         } else if (selection.equals("4")) {
@@ -91,10 +91,10 @@ public class Menu {
     }
   }
 
-  private void showUserByID() throws SQLException {
-    System.out.println("Enter the User ID of who you want to view.");
-    int userId = Integer.parseInt(scanner.nextLine());
-    User user = usersDao.showUserById(userId);
+//  private void showUserByID() throws SQLException {
+//    System.out.println("Enter the User ID of who you want to view.");
+//    int userId = Integer.parseInt(scanner.nextLine());
+//    User user = usersDao.showUserById(userId);
 
 //    for (User user1 : users) {
 //
@@ -109,7 +109,7 @@ public class Menu {
 //      System.out.println(
 //          "User: " + usersDao.showUserById(userId) + "To-Do: " + todo.getTodoContent());
 //    }
-  }
+//  }
 
   //    private void showAll(){
   //        int user = users.getUserId();
