@@ -96,9 +96,9 @@ public class Menu {
     int userId = Integer.parseInt(scanner.nextLine());
     User user = usersDao.showUserById(userId);
 
-    for (User user1 : users) {
-
-    }
+//    for (User user1 : users) {
+//
+//    }
 
 //    for (User user : users) {
 //

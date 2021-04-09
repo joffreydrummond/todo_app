@@ -27,9 +27,12 @@ public class UserDao {
 
     public List<User> showAllUsers() throws SQLException {
         System.out.println("Querying all users from DB...");
-        ResultSet rs = conn.prepareStatement(SHOW_ALL_USERS).executeQuery();
+//        ResultSet rs = conn.prepareStatement(SHOW_ALL_USERS).executeQuery();
         List<User> users = new ArrayList<>();
+        ResultSet rs = conn.prepareStatement(SHOW_ALL_USERS).executeQuery();
+
         while (rs.next()) {
+
             users.add(populateUsers(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
              todos));
         }
@@ -40,9 +43,9 @@ public class UserDao {
     public User showUserById(int userId) throws SQLException {
         PreparedStatement ps = conn.prepareStatement(SHOW_USER_BY_ID);
         ps.setInt(1, userId);
-        ResultSet rs = ps.executeQuery();
-        rs.next();
-        return populateUsers(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+        ResultSet rs1 = ps.executeQuery();
+        rs1.next();
+        return populateUsers(rs1.getInt(1), rs1.getString(2), rs1.getString(3), rs1.getString(4), rs1.getString(5),
                 todos);
 
     }

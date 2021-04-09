@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="created showuserbyid method in the userdao">
+    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="fixed show all users method. still throwing an error. so almost fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/todo_app/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/app/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/DBConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/TodoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/TodoDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/todo_app/entity/Todo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/entity/Todo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/todo_app/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/schema/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/TodoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/TodoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,8 +166,26 @@
       <option name="project" value="LOCAL" />
       <updated>1617923792873</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fixed show all users method. still throwing an error. so almost fixed">
+      <created>1617941355946</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617941355946</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added schema to create db and java gitignore" />
@@ -189,6 +201,27 @@
     <MESSAGE value="set gettodobyuserid to return the user id that was passed through" />
     <MESSAGE value="resolved the errors by creating list variable from todos class" />
     <MESSAGE value="created showuserbyid method in the userdao" />
-    <option name="LAST_COMMIT_MESSAGE" value="created showuserbyid method in the userdao" />
+    <MESSAGE value="fixed show all users method. still throwing an error. so almost fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed show all users method. still throwing an error. so almost fixed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dao/UserDao.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dao/UserDao.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
