@@ -28,7 +28,7 @@ public class TodoDao {
 
     }
 
-    public Todo getTodoByUserId1(int userId) throws SQLException {
+    public Todo getTodoByUserId(int userId) throws SQLException {
         ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
         ps.setInt(1, userId);
         rs = ps.executeQuery();
@@ -36,17 +36,17 @@ public class TodoDao {
        return populateTodo(rs.getString(2));
     }
 
-    public Todo getTodoByUserId(int userId) throws SQLException {
-        ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
-        ps.setInt(1, userId);
-        rs = ps.executeQuery();
-        rs.next();
-        List<Todo> todos = new ArrayList<>();
-            while (rs.next()){
-                todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4)));
-            }
-        return populateTodo(rs.getString(2));
-    }
+//    public Todo getTodoByUserId(int userId) throws SQLException {
+//        ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
+//        ps.setInt(1, userId);
+//        rs = ps.executeQuery();
+//        rs.next();
+//        List<Todo> todos = new ArrayList<>();
+//            while (rs.next()){
+//                todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4)));
+//            }
+//        return populateTodo(rs.getString(2));
+//    }
 
     public void addNewTodoToUser(int userId, String todoContent) throws SQLException {
         ps = conn.prepareStatement(INSERT_TODO);
