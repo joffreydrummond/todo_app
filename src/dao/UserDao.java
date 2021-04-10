@@ -51,51 +51,11 @@ public class UserDao {
       System.out.println("Error when running SelectAllUsers()...");
       throwables.printStackTrace();
     }
-    //    finally {
-    //      if (conn != null) {
-    //        System.out.println("Closing the DB connection....");
-    //        conn.close();
-    //        System.out.println("DB connection has successfully disconnected.");
-    //      }
-    //    }
     return users;
   }
 
 
-  //  public User showUserByID() throws SQLException {
-  //    Scanner scan = new Scanner(System.in);
-  //    User user = null;
-  //    System.out.println("Enter the User ID of who you want to view.");
-  //    int userId = Integer.parseInt(scan.nextLine());
-  //    ResultSet rs = conn.prepareStatement(SHOW_USER_BY_ID).executeQuery();
-  //    ps.setInt(1, userId);
-  //    try {
-  //      System.out.println("Querying all users from DB...");
-  //      Statement stmt = conn.createStatement();
-  //      while (rs.next()) {
-  //        System.out.println(
-  //                "User ID: "
-  //                        + rs.getInt("user_id")
-  //                        + " First Name: "
-  //                        + rs.getString("first_name")
-  //                        + " | Last Name: "
-  //                        + rs.getString("last_name")
-  //                        + " | Email Address: "
-  //                        + rs.getString("email_address")
-  //                        + " | Phone "
-  //                        + "Number: "
-  //                        + rs.getString("phone_number"));
-  //      }
-  //    } catch (SQLException throwables) {
-  //      System.out.println("Error when running SelectAllUsers()...");
-  //      throwables.printStackTrace();
-  //    }
-  //    return user;
-  //  }
-
   public User getUserByID(int userId) throws SQLException {
-//    System.out.println("Enter the User ID of who you want to view.");
-//    int userId = Integer.parseInt(scan.nextLine());
     ps = conn.prepareStatement(SHOW_USER_BY_ID);
     ps.setInt(1, userId);
     rs = ps.executeQuery();
@@ -104,38 +64,29 @@ public class UserDao {
 
   }
 
-  public User populateUser(int userId, String firstName, String lastName, String emailAddy, String phoneNum) {
 
+
+  public User addNewUser(String firstName, String lastName, String emailAddy, String phoneNum) throws SQLException {
+    ps = conn.prepareStatement(INSERT_NEW_USER);
+    ps.setString(1, firstName);
+    ps.setString(2, lastName);
+    ps.setString(3,emailAddy);
+    ps.setString(4, phoneNum);
+    return populateUser(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+
+  }
+
+  public User populateUser(int userId, String firstName, String lastName, String emailAddy, String phoneNum) {
     return new User(userId, firstName, lastName, emailAddy, phoneNum);
   }
+
 }
 
 
 
-//  //    public void showAllUsers() throws SQLException {
-//  //        String query = "SELECT * FROM users";
-//          try {
-//              System.out.println("Querying all users from DB...");
-//              Statement stmt = conn.createStatement();
-//              ResultSet rs = stmt.getResultSet();
-//              while (rs.next()) {
-//                  System.out.println("Entity.User ID: " + rs.getInt("user_id") + " First Name: " +
-//   rs.getString("first_name") + " Last Name: " +
-//                          rs.getString("last_name") + "Email Address: " +
-//   rs.getString("email_address") + "Phone " +
-//                          "Number: " + rs.getString("phone_number"));
-//              }
-//          } catch (SQLException throwables) {
-//              System.out.println("Error when running SelectAllUsers()...");
-//              throwables.printStackTrace();
-//          } finally {
-//              if (conn != null) {
-//                  System.out.println("Closing the DB connection....");
-//                  conn.close();
-//                  System.out.println("DB connection has successfully disconnected.");
-//              }
-//          }
-//  //    }
+
+
+
 //
 //  public void addNewUser() throws SQLException {
 //    String query =

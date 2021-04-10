@@ -92,53 +92,10 @@ public class Menu {
     System.out.println(user.getUserId() + " | " + user.getFirstName() + " | " + user.getLastName() + " | " + user.getEmailAddress() + " | " + user.getPhoneNumber());
   }
 
-//
-//  private void showAllUsers() throws SQLException {
-//    List<User> users = userDao.showAllUsers();
-//    for (User user : users) {
-//      System.out.println(
-//          "User ID: "
-//              + user.getUserId()
-//              + " | First Name: "
-//              + user.getFirstName()
-//              + " | Last Name: "
-//              + user.getLastName());
-//    }
-//  }
-
-//  private void showUserByID() throws SQLException {
-//    System.out.println("Enter the User ID of who you want to view.");
-//    int userId = Integer.parseInt(scanner.nextLine());
-//    usersDao.showUserById(userId);
-//
-//
-//    }
 
 
-//    for (Todo todo : todos) {
-//      System.out.println(
-//          "User: " + usersDao.showUserById(userId) + "To-Do: " + todo.getTodoContent());
-//    }
-//  }
 
-  //    private void showAll(){
-  //        int user = users.getUserId();
-  //
-  //        for (User user: users
-  //             ) {
-  //
-  //        }
-  //    }
 
-  //    private void showUserByID() throws SQLException {
-  //        System.out.println("Enter the User ID of who you want to view.");
-  //        int userId = Integer.parseInt(scanner.nextLine());
-  //        List<Todo> todos = todoDao.getTodoByUserID(userId);
-  //
-  //        for (Todo todo : todos) {
-  //            System.out.println("User: " + usersDao.showUserById(userId) + "To-Do: " +
-  // todo.getTodoContent());
-  //        }
-  //    }
+
 
 }
