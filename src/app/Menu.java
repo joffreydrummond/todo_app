@@ -29,6 +29,7 @@ public class Menu {
           "Add New User",
           "Delete User",
           "Add New Todo",
+          "Get Todos By User ID",
           "Update Todo",
           "Delete Todo");
 
@@ -49,16 +50,18 @@ public class Menu {
         } else if (selection.equals("3")) {
           addNewUser();
         } else if (selection.equals("4")) {
-                          deleteUserById();
+//          deleteUserById();
         } else if (selection.equals("5")) {
-          //                addNewTodo();
+          //                addNewTodoToUser();
         } else if (selection.equals("6")) {
-          //                updateTodo();
+//          getTodosByUserId();
         } else if (selection.equals("7")) {
+          //                updateTodo();
+        } else if (selection.equals("8")) {
           //                deleteTodo();
         }
       } catch (SQLException throwables) {
-        System.out.println("Error at start...not a good sign...debug or go home!");
+        System.out.println("Error...not a good sign...debug or go home!");
         throwables.printStackTrace();
       }
 
@@ -107,6 +110,14 @@ public class Menu {
             + user.getPhoneNumber());
   }
 
+//  private void getTodosByUserId() throws SQLException {
+//    System.out.println("Enter the User ID to view Todos.");
+//    int userId = Integer.parseInt(scan.nextLine());
+//    Todo todos = todoDao.getTodoByUserId(userId);
+//
+//    System.out.println(todos.getTodoContent());
+//  }
+
   private void addNewUser() throws SQLException {
     System.out.println("Enter the first name of the new user: ");
     String firstName = scan.nextLine();
@@ -125,5 +136,4 @@ public class Menu {
     int userId = Integer.parseInt(scan.nextLine());
     userDao.deleteUserById(userId);
   }
-
 }

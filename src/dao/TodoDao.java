@@ -8,11 +8,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class TodoDao {
-    public static Connection conn;
+    private Connection conn = null;
+    private PreparedStatement ps = null;
+    private ResultSet rs = null;
     private static UserDao userDao;
     private User user;
     private List<Todo> todos;
@@ -25,39 +28,54 @@ public class TodoDao {
 
     }
 
-    public List<Todo> getTodoByUserID(int userId) throws SQLException {
-        try {
-            PreparedStatement ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
-            System.out.println("Enter the user ID where you want to add a todo.");
-            ps.setInt(1, userId);
-            ResultSet rs = ps.executeQuery();
-            List<Todo> todos = new ArrayList<>();
+//    public Todo getTodoByUserId(int userId) throws SQLException {
+//        ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
+//        ps.setInt(1, userId);
+//        rs = ps.executeQuery();
+//        rs.next();
+//        return populateTodo(rs.getString(1));
+//    }
 
-            while (rs.next()){
-                todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5)));
-            }
 
-            if (user != null){
 
-                System.out.println("Enter the todo details.");
-                String todosContent = scan.nextLine();
-                ps.setString(1, todosContent);
-                ps.executeUpdate();
-            }
+    public Todo populateTodo(int todoId, String todoContent, Date createdDate, int userId, int statusId){
 
-        } catch (SQLException throwables) {
-            System.out.println("Error when running addNewTodo().");
-            throwables.printStackTrace();
-        }
-        finally {
-            if (conn != null) {
-                System.out.println("Closing DB connection...");
-                conn.close();
-                System.out.println("DB has disconnected successfully.");
-            }
-        }
-        return todos;
+        return new Todo(todoId,todoContent, createdDate, userId, statusId);
     }
+
+//    public List<Todo> getTodoByUserID(int userId) throws SQLException {
+//        try {
+//            PreparedStatement ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
+//            System.out.println("Enter the user ID where you want to add a todo.");
+//            ps.setInt(1, userId);
+//            ResultSet rs = ps.executeQuery();
+//            List<Todo> todos = new ArrayList<>();
+//
+//            while (rs.next()){
+//                todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5)));
+//            }
+//
+//            if (user != null){
+//
+//                System.out.println("Enter the todo details.");
+//                String todosContent = scan.nextLine();
+//                ps.setString(1, todosContent);
+//                ps.executeUpdate();
+//            }
+//
+//        } catch (SQLException throwables) {
+//            System.out.println("Error when running addNewTodo().");
+//            throwables.printStackTrace();
+//        }
+//        finally {
+//            if (conn != null) {
+//                System.out.println("Closing DB connection...");
+//                conn.close();
+//                System.out.println("DB has disconnected successfully.");
+//            }
+//        }
+//        return todos;
+//    }
 
 /*
     public static void addNewTodo() throws SQLException {
