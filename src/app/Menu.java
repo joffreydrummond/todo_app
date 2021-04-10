@@ -50,11 +50,11 @@ public class Menu {
         } else if (selection.equals("3")) {
           addNewUser();
         } else if (selection.equals("4")) {
-//          deleteUserById();
+          deleteUserById();
         } else if (selection.equals("5")) {
           //                addNewTodoToUser();
         } else if (selection.equals("6")) {
-//          getTodosByUserId();
+          getTodosByUserId();
         } else if (selection.equals("7")) {
           //                updateTodo();
         } else if (selection.equals("8")) {
@@ -110,13 +110,13 @@ public class Menu {
             + user.getPhoneNumber());
   }
 
-//  private void getTodosByUserId() throws SQLException {
-//    System.out.println("Enter the User ID to view Todos.");
-//    int userId = Integer.parseInt(scan.nextLine());
-//    Todo todos = todoDao.getTodoByUserId(userId);
-//
-//    System.out.println(todos.getTodoContent());
-//  }
+  private void getTodosByUserId() throws SQLException {
+    System.out.println("Enter the User ID to view Todos.");
+    int userId = Integer.parseInt(scan.nextLine());
+    Todo todos = todoDao.getTodoByUserId(userId);
+
+    System.out.println("To-Dos: " + todos.getTodoContent());
+  }
 
   private void addNewUser() throws SQLException {
     System.out.println("Enter the first name of the new user: ");
@@ -135,5 +135,6 @@ public class Menu {
     System.out.println("Enter the user id of the user you want to delete: ");
     int userId = Integer.parseInt(scan.nextLine());
     userDao.deleteUserById(userId);
+    System.out.println("User was successfully deleted!");
   }
 }

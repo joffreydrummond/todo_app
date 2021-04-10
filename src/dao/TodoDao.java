@@ -21,26 +21,45 @@ public class TodoDao {
     private List<Todo> todos;
     Scanner scan = new Scanner(System.in);
     private final String GET_TODOS_BY_USER_ID = "SELECT * FROM todos WHERE user_id = ?";
-    private final String INSERT_TODO = "INSERT INTO todos (todo_content, user_id) VALUES(?, ?, ?)";
+    private final String INSERT_TODO = "INSERT INTO todos (todo_content, user_id) VALUES(?, ?)";
 
     public TodoDao() throws SQLException {
         conn = DBConnection.getConn();
 
     }
 
-//    public Todo getTodoByUserId(int userId) throws SQLException {
-//        ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
-//        ps.setInt(1, userId);
-//        rs = ps.executeQuery();
-//        rs.next();
-//        return populateTodo(rs.getString(1));
-//    }
+    public Todo getTodoByUserId1(int userId) throws SQLException {
+        ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
+        ps.setInt(1, userId);
+        rs = ps.executeQuery();
+        rs.next();
+       return populateTodo(rs.getString(2));
+    }
+
+    public Todo getTodoByUserId(int userId) throws SQLException {
+        ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
+        ps.setInt(1, userId);
+        rs = ps.executeQuery();
+        rs.next();
+        List<Todo> todos = new ArrayList<>();
+            while (rs.next()){
+                todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4)));
+            }
+        return populateTodo(rs.getString(2));
+    }
+
+    public void addNewTodoToUser(int userId, String todoContent) throws SQLException {
+        ps = conn.prepareStatement(INSERT_TODO);
+        ps.setInt(2, userId);
+        ps.setString(1, todoContent);
+            ps.executeUpdate();
+    }
 
 
 
-    public Todo populateTodo(int todoId, String todoContent, Date createdDate, int userId, int statusId){
+    public Todo populateTodo(String todoContent){
 
-        return new Todo(todoId,todoContent, createdDate, userId, statusId);
+        return new Todo(todoContent);
     }
 
 //    public List<Todo> getTodoByUserID(int userId) throws SQLException {

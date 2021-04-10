@@ -18,13 +18,17 @@ public class Todo {
     private List<Status> statuses;
 
 //trying by removing the List from the contructor
-    public Todo(int todoId, String todoContent, Date createdDate, int userId, int statusId) {
+    public Todo(int todoId, String todoContent, Date createdDate, int userId) {
         this.todoId = todoId;
         this.todoContent = todoContent;
         this.createdDate = createdDate;
         this.userId = userId;
         this.statusId = statusId;
 
+    }
+
+    public Todo(String todoContent) {
+        this.todoContent = todoContent;
     }
 
 //    public Todo(String todoContent) {

@@ -63,8 +63,6 @@ public class UserDao {
     ps.setString(3,emailAddy);
     ps.setString(4, phoneNum);
     ps.executeUpdate();
-
-//    return addUser(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
   }
 
   public void deleteUserById(int userId) throws SQLException {
@@ -78,9 +76,7 @@ public class UserDao {
   public User populateUser(int userId, String firstName, String lastName, String emailAddy, String phoneNum) {
     return new User(userId, firstName, lastName, emailAddy, phoneNum);
   }
-  public User addUser(String firstName, String lastName, String emailAddy, String phoneNum) {
-    return new User(firstName, lastName, emailAddy, phoneNum);
-  }
+
 
 }
 

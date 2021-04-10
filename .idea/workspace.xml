@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="created delete method. foreign and primary key issue keepin from delete working will update tomorrow">
+    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="fixed the add new user method with Jeff's help. Removed the User class reference">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/TodoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/TodoDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/entity/Todo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/entity/Todo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/TodoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/TodoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
@@ -47,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../todo_app" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -215,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618020985882</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fixed the add new user method with Jeff's help. Removed the User class reference">
+      <created>1618082251731</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1618082251731</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,7 +259,8 @@
     <MESSAGE value="fixed showallusersbyid finally. thanks lisa" />
     <MESSAGE value="created addnewuser method in user dao" />
     <MESSAGE value="created delete method. foreign and primary key issue keepin from delete working will update tomorrow" />
-    <option name="LAST_COMMIT_MESSAGE" value="created delete method. foreign and primary key issue keepin from delete working will update tomorrow" />
+    <MESSAGE value="fixed the add new user method with Jeff's help. Removed the User class reference" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the add new user method with Jeff's help. Removed the User class reference" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -259,44 +269,6 @@
           <properties class="java.sql.SQLException" package="java.sql" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/app/Menu.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/app/Menu.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/app/Menu.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/app/Menu.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dao/UserDao.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dao/UserDao.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/dao/UserDao.java</url>
-          <line>80</line>
-          <properties class="dao.UserDao" method="addUser">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
