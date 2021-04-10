@@ -12,13 +12,13 @@ public class User {
     private String phoneNumber;
     private List<Todo> todoByUserId;
 
-    public User(int userId, String firstName, String lastName, String emailAddress, String phoneNumber, List<Todo> todoByUserID){
+    public User(int userId, String firstName, String lastName, String emailAddress, String phoneNumber){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
-        this.todoByUserId = todoByUserID;
+//        this.todoByUserId = todoByUserID;
     }
 
 

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="added schema project to hold schema markup">
+    <list default="true" id="8d7bbe59-249f-4f20-bfa4-e433b5a61af4" name="Default Changelist" comment="fixed showallusers method so it is working.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/app/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/todo_app/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +50,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -181,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617986468572</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixed showallusers method so it is working.">
+      <created>1617989750067</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617989750067</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,7 +224,8 @@
     <MESSAGE value="created showuserbyid method in the userdao" />
     <MESSAGE value="fixed show all users method. still throwing an error. so almost fixed" />
     <MESSAGE value="added schema project to hold schema markup" />
-    <option name="LAST_COMMIT_MESSAGE" value="added schema project to hold schema markup" />
+    <MESSAGE value="fixed showallusers method so it is working." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed showallusers method so it is working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -221,11 +234,6 @@
           <properties class="java.sql.SQLException" package="java.sql" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dao/UserDao.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

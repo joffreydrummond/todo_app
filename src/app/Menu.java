@@ -5,15 +5,22 @@ import dao.UserDao;
 import entity.Todo;
 import entity.User;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-  private Scanner scanner = new Scanner(System.in);
+  private Scanner scan = new Scanner(System.in);
   private TodoDao todoDao = new TodoDao();
-  private UserDao usersDao = new UserDao();
+  private UserDao userDao = new UserDao();
+  private Connection conn = null;
+  private PreparedStatement ps = null;
+  private ResultSet rs = null;
   private User users;
   private List<String> options =
       Arrays.asList(
@@ -32,13 +39,13 @@ public class Menu {
 
     do {
       printMenu();
-      selection = scanner.nextLine();
+      selection = scan.nextLine();
 
       try {
         if (selection.equals("1")) {
           showAllUsers();
         } else if (selection.equals("2")) {
-//          showUserByID();
+          showUserById();
         } else if (selection.equals("3")) {
           //                addNewUser();
         } else if (selection.equals("4")) {
@@ -61,6 +68,8 @@ public class Menu {
     } while (!selection.equals("-1"));
   }
 
+
+
   private void printMenu() {
     System.out.println("Select an option: \n-------------------------");
     for (int i = 0; i < options.size(); i++) {
@@ -68,39 +77,40 @@ public class Menu {
     }
   }
 
-  //    private void showAllUsers() throws SQLException {
-  // if (todoDao != null){
-  //     List<Todo> todos = todoDao.getTodoByUserID(userId);
-  //     for (Todo todo : todos) {
-  //         System.out.println("To-Do: " + todo.getTodoContent());
-  //     }
-  //
-  // }
-  //    }
-
-  private void showAllUsers() throws SQLException {
-    List<User> users = usersDao.showAllUsers();
+  private void showAllUsers() throws SQLException{
+    List<User> users = userDao.showAllUsers();
     for (User user : users) {
-      System.out.println(
-          "User ID: "
-              + user.getUserId()
-              + " | First Name: "
-              + user.getFirstName()
-              + " | Last Name: "
-              + user.getLastName());
+      System.out.println(user.getUserId() + " | " + user.getFirstName() + " | " + user.getLastName() + " | " + user.getEmailAddress() + " | " + user.getPhoneNumber());
     }
+      }
+
+
+  private void showUserById() throws SQLException {
+        System.out.println("Enter the User ID of who you want to view.");
+    int userId = Integer.parseInt(scan.nextLine());
+    User user = userDao.getUserByID(userId);
+    System.out.println(user.getUserId() + " | " + user.getFirstName() + " | " + user.getLastName() + " | " + user.getEmailAddress() + " | " + user.getPhoneNumber());
   }
+
+//
+//  private void showAllUsers() throws SQLException {
+//    List<User> users = userDao.showAllUsers();
+//    for (User user : users) {
+//      System.out.println(
+//          "User ID: "
+//              + user.getUserId()
+//              + " | First Name: "
+//              + user.getFirstName()
+//              + " | Last Name: "
+//              + user.getLastName());
+//    }
+//  }
 
 //  private void showUserByID() throws SQLException {
 //    System.out.println("Enter the User ID of who you want to view.");
 //    int userId = Integer.parseInt(scanner.nextLine());
-//    User user = usersDao.showUserById(userId);
-
-//    for (User user1 : users) {
+//    usersDao.showUserById(userId);
 //
-//    }
-
-//    for (User user : users) {
 //
 //    }
 
