@@ -47,9 +47,9 @@ public class Menu {
         } else if (selection.equals("2")) {
           showUserById();
         } else if (selection.equals("3")) {
-          //                addNewUser();
+          addNewUser();
         } else if (selection.equals("4")) {
-          //                deleteUser();
+                          deleteUserById();
         } else if (selection.equals("5")) {
           //                addNewTodo();
         } else if (selection.equals("6")) {
@@ -68,8 +68,6 @@ public class Menu {
     } while (!selection.equals("-1"));
   }
 
-
-
   private void printMenu() {
     System.out.println("Select an option: \n-------------------------");
     for (int i = 0; i < options.size(); i++) {
@@ -77,25 +75,55 @@ public class Menu {
     }
   }
 
-  private void showAllUsers() throws SQLException{
+  private void showAllUsers() throws SQLException {
     List<User> users = userDao.showAllUsers();
     for (User user : users) {
-      System.out.println(user.getUserId() + " | " + user.getFirstName() + " | " + user.getLastName() + " | " + user.getEmailAddress() + " | " + user.getPhoneNumber());
+      System.out.println(
+          user.getUserId()
+              + " | "
+              + user.getFirstName()
+              + " | "
+              + user.getLastName()
+              + " | "
+              + user.getEmailAddress()
+              + " | "
+              + user.getPhoneNumber());
     }
-      }
-
-
-  private void showUserById() throws SQLException {
-        System.out.println("Enter the User ID of who you want to view.");
-    int userId = Integer.parseInt(scan.nextLine());
-    User user = userDao.getUserByID(userId);
-    System.out.println(user.getUserId() + " | " + user.getFirstName() + " | " + user.getLastName() + " | " + user.getEmailAddress() + " | " + user.getPhoneNumber());
   }
 
+  private void showUserById() throws SQLException {
+    System.out.println("Enter the User ID of who you want to view.");
+    int userId = Integer.parseInt(scan.nextLine());
+    User user = userDao.getUserByID(userId);
+    System.out.println(
+        user.getUserId()
+            + " | "
+            + user.getFirstName()
+            + " | "
+            + user.getLastName()
+            + " | "
+            + user.getEmailAddress()
+            + " | "
+            + user.getPhoneNumber());
+  }
 
+  private void addNewUser() throws SQLException {
+    System.out.println("Enter the first name of the new user: ");
+    String firstName = scan.nextLine();
+    System.out.println("Enter the last name of the new user: ");
+    String lastName = scan.nextLine();
+    System.out.println("Enter the email address of the new user: ");
+    String emailAddress = scan.nextLine();
+    System.out.println("Enter the phone number of the new user: ");
+    String phoneNumber = scan.nextLine();
+    userDao.addNewUser(firstName, lastName, emailAddress, phoneNumber);
+    System.out.println("New user created successfully!");
+  }
 
-
-
-
+  private void deleteUserById() throws SQLException {
+    System.out.println("Enter the user id of the user you want to delete: ");
+    int userId = Integer.parseInt(scan.nextLine());
+    userDao.deleteUserById(userId);
+  }
 
 }

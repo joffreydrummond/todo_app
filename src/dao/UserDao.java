@@ -65,19 +65,28 @@ public class UserDao {
   }
 
 
-
   public User addNewUser(String firstName, String lastName, String emailAddy, String phoneNum) throws SQLException {
     ps = conn.prepareStatement(INSERT_NEW_USER);
     ps.setString(1, firstName);
     ps.setString(2, lastName);
     ps.setString(3,emailAddy);
     ps.setString(4, phoneNum);
-    return populateUser(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+    return addUser(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+  }
+
+  public void deleteUserById(int userId) throws SQLException {
+    ps = conn.prepareStatement(DELETE_USER_BY_ID);
+    ps.setInt(1, userId);
+    ps.executeUpdate();
 
   }
 
+
   public User populateUser(int userId, String firstName, String lastName, String emailAddy, String phoneNum) {
     return new User(userId, firstName, lastName, emailAddy, phoneNum);
+  }
+  public User addUser(String firstName, String lastName, String emailAddy, String phoneNum) {
+    return new User(firstName, lastName, emailAddy, phoneNum);
   }
 
 }
@@ -87,38 +96,7 @@ public class UserDao {
 
 
 
-//
-//  public void addNewUser() throws SQLException {
-//    String query =
-//        "INSERT INTO users(first_name, last_name, email_address, phone_number) VALUES(?,?,?,?)";
-//    Scanner scan = new Scanner(System.in);
-//    try {
-//      System.out.println("Enter the first name of the new user: ");
-//      String firstName = scan.nextLine();
-//      PreparedStatement ps = conn.prepareStatement(query);
-//      ps.setString(1, firstName);
-//      System.out.println("Enter the last name of the new user: ");
-//      String lastName = scan.nextLine();
-//      ps.setString(2, lastName);
-//      System.out.println("Enter the email address of the new user: ");
-//      String emailAddress = scan.nextLine();
-//      ps.setString(3, emailAddress);
-//      System.out.println("Enter the phone number of the new user: ");
-//      String phoneNumber = scan.nextLine();
-//      ps.setString(4, phoneNumber);
-//      ps.executeUpdate();
-//      System.out.println("New user created successfully!");
-//    } catch (SQLException throwables) {
-//      System.out.println("Error when running addNewUsers()...");
-//      throwables.printStackTrace();
-//    } finally {
-//      if (conn != null) {
-//        System.out.println("Closing the DB connection....");
-//        conn.close();
-//        System.out.println("DB connection has successfully disconnected.");
-//      }
-//    }
-//  }
+
 //
 //  public void deleteUser() throws SQLException {
 //    String query = "DELETE FROM users WHERE user_id = ? ";

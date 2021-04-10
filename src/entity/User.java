@@ -21,6 +21,9 @@ public class User {
 //        this.todoByUserId = todoByUserID;
     }
 
+    public User(String firstName, String lastName, String emailAddy, String phoneNum) {
+    }
+
 
     public int getUserId() {
         return userId;
