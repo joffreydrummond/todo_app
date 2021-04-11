@@ -1,8 +1,6 @@
 package entity;
 
-import java.sql.*;
 import java.util.List;
-import java.util.Scanner;
 
 public class User {
     private int userId;
@@ -18,7 +16,6 @@ public class User {
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
-//        this.todoByUserId = todoByUserID;
     }
 
     public User(String firstName, String lastName, String emailAddy, String phoneNum) {

@@ -67,7 +67,6 @@ public class UserDao {
     ps = conn.prepareStatement(DELETE_USER_BY_ID);
     ps.setInt(1, userId);
     ps.executeUpdate();
-
   }
 
   public User populateUser(int userId, String firstName, String lastName, String emailAddy, String phoneNum) {

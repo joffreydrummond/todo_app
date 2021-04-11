@@ -5,11 +5,8 @@ import dao.UserDao;
 import entity.Todo;
 import entity.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -18,9 +15,6 @@ public class Menu {
   private Scanner scan = new Scanner(System.in);
   private TodoDao todoDao = new TodoDao();
   private UserDao userDao = new UserDao();
-  private Connection conn = null;
-  private PreparedStatement ps = null;
-  private ResultSet rs = null;
   private List<String> options =
       Arrays.asList(
           "Show All Users",
@@ -57,7 +51,7 @@ public class Menu {
         } else if (selection.equals("7")) {
           //                updateTodoStatus();
         } else if (selection.equals("8")) {
-          //                deleteTodo();
+          deleteTodoById();
         }
       } catch (SQLException throwables) {
         System.out.println("Error...not a good sign...debug or go home!");
@@ -114,10 +108,8 @@ public class Menu {
     int userId = Integer.parseInt(scan.nextLine());
     List<Todo> todos = todoDao.getTodoByUserId(userId);
     for (Todo todo : todos) {
-      System.out.println("To-Dos: " + todo.getTodoContent());
+      System.out.println("To-Do ID) " + todo.getTodoId() + " | To-Do: " + todo + " | Created On: " + todo.getCreatedDate());
     }
-
-
   }
 
   private void addNewUser() throws SQLException {
@@ -148,4 +140,12 @@ public class Menu {
     todoDao.addNewTodoToUser(userId, todoContent);
     System.out.println("New todo added successfully!");
   }
+
+  private void deleteTodoById() throws SQLException {
+    System.out.println("Enter the Todo ID you want to delete: ");
+    int todoId = Integer.parseInt(scan.nextLine());
+    todoDao.deleteTodoById(todoId);
+    System.out.println("Todo was successfully deleted!");
+  }
+
 }
