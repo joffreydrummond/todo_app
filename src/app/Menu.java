@@ -21,7 +21,6 @@ public class Menu {
   private Connection conn = null;
   private PreparedStatement ps = null;
   private ResultSet rs = null;
-  private User users;
   private List<String> options =
       Arrays.asList(
           "Show All Users",
@@ -29,8 +28,8 @@ public class Menu {
           "Add New User",
           "Delete User",
           "Add New Todo",
-          "Get Todos By User ID",
-          "Update Todo",
+          "Show Todos By User ID",
+          "Update Todo Status",
           "Delete Todo");
 
   public Menu() throws SQLException {}
@@ -52,11 +51,11 @@ public class Menu {
         } else if (selection.equals("4")) {
           deleteUserById();
         } else if (selection.equals("5")) {
-          //                addNewTodoToUser();
+          addNewTodoToUser();
         } else if (selection.equals("6")) {
           getTodosByUserId();
         } else if (selection.equals("7")) {
-          //                updateTodo();
+          //                updateTodoStatus();
         } else if (selection.equals("8")) {
           //                deleteTodo();
         }
@@ -65,8 +64,8 @@ public class Menu {
         throwables.printStackTrace();
       }
 
-      //            System.out.println("Press enter to continue...");
-      //            scanner.nextLine();
+      System.out.println("Press enter to continue...");
+      scan.nextLine();
 
     } while (!selection.equals("-1"));
   }
@@ -113,9 +112,12 @@ public class Menu {
   private void getTodosByUserId() throws SQLException {
     System.out.println("Enter the User ID to view Todos.");
     int userId = Integer.parseInt(scan.nextLine());
-    Todo todos = todoDao.getTodoByUserId(userId);
+    List<Todo> todos = todoDao.getTodoByUserId(userId);
+    for (Todo todo : todos) {
+      System.out.println("To-Dos: " + todo.getTodoContent());
+    }
 
-    System.out.println("To-Dos: " + todos.getTodoContent());
+
   }
 
   private void addNewUser() throws SQLException {
@@ -136,5 +138,14 @@ public class Menu {
     int userId = Integer.parseInt(scan.nextLine());
     userDao.deleteUserById(userId);
     System.out.println("User was successfully deleted!");
+  }
+
+  private void addNewTodoToUser() throws SQLException {
+    System.out.println("Enter the User ID of the user the todo will be added to.");
+    int userId = Integer.parseInt(scan.nextLine());
+    System.out.println("Add the todo.");
+    String todoContent = scan.nextLine();
+    todoDao.addNewTodoToUser(userId, todoContent);
+    System.out.println("New todo added successfully!");
   }
 }

@@ -46,7 +46,6 @@ public class UserDao {
     return users;
   }
 
-
   public User getUserByID(int userId) throws SQLException {
     ps = conn.prepareStatement(SHOW_USER_BY_ID);
     ps.setInt(1, userId);
@@ -54,7 +53,6 @@ public class UserDao {
     rs.next();
     return populateUser(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
   }
-
 
   public void addNewUser(String firstName, String lastName, String emailAddy, String phoneNum) throws SQLException {
     ps = conn.prepareStatement(INSERT_NEW_USER);
@@ -71,7 +69,6 @@ public class UserDao {
     ps.executeUpdate();
 
   }
-
 
   public User populateUser(int userId, String firstName, String lastName, String emailAddy, String phoneNum) {
     return new User(userId, firstName, lastName, emailAddy, phoneNum);

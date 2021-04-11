@@ -18,7 +18,7 @@ public class Todo {
     private List<Status> statuses;
 
 //trying by removing the List from the contructor
-    public Todo(int todoId, String todoContent, Date createdDate, int userId) {
+    public Todo(int todoId, String todoContent, Date createdDate, int userId, int statusId) {
         this.todoId = todoId;
         this.todoContent = todoContent;
         this.createdDate = createdDate;
@@ -29,6 +29,9 @@ public class Todo {
 
     public Todo(String todoContent) {
         this.todoContent = todoContent;
+    }
+
+    public Todo(int anInt, String string) {
     }
 
 //    public Todo(String todoContent) {
