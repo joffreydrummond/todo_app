@@ -49,7 +49,7 @@ public class Menu {
         } else if (selection.equals("6")) {
           getTodosByUserId();
         } else if (selection.equals("7")) {
-          //                updateTodoStatus();
+                          updateTodoStatus();
         } else if (selection.equals("8")) {
           deleteTodoById();
         }
@@ -140,6 +140,17 @@ public class Menu {
     todoDao.addNewTodoToUser(userId, todoContent);
     System.out.println("New todo added successfully!");
   }
+
+  private void updateTodoStatus() throws SQLException {
+    System.out.println("To-Do Status: 1 = Open, 2 = Completed, 3 = Abandoned.");
+    System.out.println("Enter the new todo status. Remember to use the correct value!");
+    int status = Integer.parseInt(scan.nextLine());
+    System.out.println("Enter the todo ID you want to change the status on.");
+    int todoId = Integer.parseInt(scan.nextLine());
+    todoDao.updateTodoStatus(status, todoId);
+    System.out.println("To-Do status updated successfully!");
+  }
+
 
   private void deleteTodoById() throws SQLException {
     System.out.println("Enter the Todo ID you want to delete: ");
