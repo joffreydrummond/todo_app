@@ -74,6 +74,10 @@ public class Menu {
     }
   }
 
+
+
+
+
   private void showAllUsers() throws SQLException {
     List<User> users = userDao.showAllUsers();
     for (User user : users) {
@@ -94,16 +98,18 @@ public class Menu {
     System.out.println("Enter the User ID of who you want to view.");
     int userId = Integer.parseInt(scan.nextLine());
     User user = userDao.getUserByID(userId);
+
+//    List<User> user = userDao.getUserByID(userId);
     System.out.println(
-        "User ID)"
+        "User ID: "
             + user.getUserId()
-            + " First Name: "
+            + "\nFirst Name: "
             + user.getFirstName()
-            + " | Last Name: "
+            + "\nLast Name: "
             + user.getLastName()
-            + " | Email Address: "
+            + "\nEmail Address: "
             + user.getEmailAddress()
-            + " | Phone Number: "
+            + "\nPhone Number: "
             + user.getPhoneNumber());
   }
 
@@ -141,6 +147,7 @@ public class Menu {
     int userId = Integer.parseInt(scan.nextLine());
 
     Todo todos = (Todo) todoDao.getTodoByUserId(userId);
+
 
     System.out.println(
             "Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n"

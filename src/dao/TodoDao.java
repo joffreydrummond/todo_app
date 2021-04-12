@@ -32,7 +32,6 @@ public class TodoDao {
 
     try {
       System.out.println("Status: 1 = Open, 2 = Completed, 3 = Abandoned.");
-
       while (rs.next()) {
         System.out.println(
                 "---------------------------------" +
@@ -53,7 +52,6 @@ public class TodoDao {
       System.out.println("Error when running SelectAllUsers()...");
       throwables.printStackTrace();
     }
-
     return todos;
   }
 
@@ -74,6 +72,7 @@ public class TodoDao {
     ps = conn.prepareStatement(INSERT_TODO);
     ps.setInt(2, userId);
     ps.setString(1, todoContent);
+    ps.executeUpdate();
   }
 
   public Todo populateTodo(

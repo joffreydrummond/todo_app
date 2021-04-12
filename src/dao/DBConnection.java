@@ -30,13 +30,5 @@ public class DBConnection {
     return DBConnection.conn;
   }
 
-  public static Connection closeConn() throws SQLException {
-    System.out.println("Closing the DB connection....");
-    conn.close();
-    System.out.println("DB connection has successfully disconnected.");
-    return DBConnection.conn;
-
-  }
-
 
 }

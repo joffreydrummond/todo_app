@@ -11,7 +11,9 @@ public class UserDao {
   private PreparedStatement ps = null;
   private ResultSet rs = null;
   private final String SHOW_ALL_USERS = "SELECT * FROM users";
+//  private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
   private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
+
   private final String DELETE_USER_BY_ID = "DELETE FROM users WHERE user_id = ? ";
   private final String INSERT_NEW_USER =
       "INSERT INTO users(first_name, last_name, email_address, phone_number) VALUES" + "(?,?,?,?)";
@@ -29,13 +31,13 @@ public class UserDao {
         System.out.println(
             "User ID: "
                 + rs.getInt("user_id")
-                + " First Name: "
+                + "\nFirst Name: "
                 + rs.getString("first_name")
-                + " | Last Name: "
+                + "\nLast Name: "
                 + rs.getString("last_name")
-                + " | Email Address: "
+                + "\nEmail Address: "
                 + rs.getString("email_address")
-                + " | Phone "
+                + "\nPhone "
                 + "Number: "
                 + rs.getString("phone_number"));
       }
