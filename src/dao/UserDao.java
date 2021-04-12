@@ -21,8 +21,8 @@ public class UserDao {
   }
 
   public List<User> showAllUsers() throws SQLException {
-     List<User> users = new ArrayList<>();
-   rs = conn.prepareStatement(SHOW_ALL_USERS).executeQuery();
+    List<User> users = new ArrayList<>();
+    rs = conn.prepareStatement(SHOW_ALL_USERS).executeQuery();
     try {
       System.out.println("Querying all users from DB...");
       while (rs.next()) {
@@ -51,14 +51,16 @@ public class UserDao {
     ps.setInt(1, userId);
     rs = ps.executeQuery();
     rs.next();
-    return populateUser(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+    return populateUser(
+        rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
   }
 
-  public void addNewUser(String firstName, String lastName, String emailAddy, String phoneNum) throws SQLException {
+  public void addNewUser(String firstName, String lastName, String emailAddy, String phoneNum)
+      throws SQLException {
     ps = conn.prepareStatement(INSERT_NEW_USER);
     ps.setString(1, firstName);
     ps.setString(2, lastName);
-    ps.setString(3,emailAddy);
+    ps.setString(3, emailAddy);
     ps.setString(4, phoneNum);
     ps.executeUpdate();
   }
@@ -69,38 +71,14 @@ public class UserDao {
     ps.executeUpdate();
   }
 
-  public User populateUser(int userId, String firstName, String lastName, String emailAddy, String phoneNum) {
-    return new User(userId, firstName, lastName, emailAddy, phoneNum);
+  public void closeConn() throws SQLException {
+    System.out.println("Closing the DB connection....");
+        conn.close();
+        System.out.println("DB connection has successfully disconnected.");
   }
 
-
+  public User populateUser(
+      int userId, String firstName, String lastName, String emailAddy, String phoneNum) {
+    return new User(userId, firstName, lastName, emailAddy, phoneNum);
+  }
 }
-
-
-
-
-
-
-
-//
-//  public void deleteUser() throws SQLException {
-//    String query = "DELETE FROM users WHERE user_id = ? ";
-//    Scanner scan = new Scanner(System.in);
-//    try {
-//      System.out.println("Enter the user id of the user you want to delete: ");
-//      Integer userId = scan.nextInt();
-//      PreparedStatement ps = conn.prepareStatement(query);
-//      ps.setInt(1, userId);
-//      ps.executeUpdate();
-//      System.out.println("Entity.User was deleted successfully!");
-//    } catch (SQLException throwables) {
-//      System.out.println("Error when running deleteUser()");
-//      throwables.printStackTrace();
-//    } finally {
-//      if (conn != null) {
-//        System.out.println("Closing the DB connection....");
-//        conn.close();
-//        System.out.println("DB connection has successfully disconnected.");
-//      }
-//    }
-//  }

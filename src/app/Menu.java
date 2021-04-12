@@ -1,12 +1,14 @@
 package app;
 
+import dao.DBConnection;
 import dao.TodoDao;
 import dao.UserDao;
 import entity.Todo;
 import entity.User;
 
-
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -24,17 +26,16 @@ public class Menu {
           "Add New Todo",
           "Show Todos By User ID",
           "Update Todo Status",
-          "Delete Todo");
+          "Delete Todo",
+          "Close Connection");
 
   public Menu() throws SQLException {}
 
   public void start() {
     String selection = "";
-
     do {
       printMenu();
       selection = scan.nextLine();
-
       try {
         if (selection.equals("1")) {
           showAllUsers();
@@ -49,19 +50,21 @@ public class Menu {
         } else if (selection.equals("6")) {
           getTodosByUserId();
         } else if (selection.equals("7")) {
-                          updateTodoStatus();
+          updateTodoStatus();
         } else if (selection.equals("8")) {
           deleteTodoById();
+        } else if (selection.equals("9")) {
+          userDao.closeConn();
+          System.out.println("--------------------------");
+          System.out.println("--------------------------");
+          System.out.println("Thanks for using the ToDo CLI App!");
         }
       } catch (SQLException throwables) {
         System.out.println("Error...not a good sign...debug or go home!");
         throwables.printStackTrace();
       }
 
-      System.out.println("Press enter to continue...");
-      scan.nextLine();
-
-    } while (!selection.equals("-1"));
+    } while (!selection.equals("9"));
   }
 
   private void printMenu() {
@@ -92,24 +95,16 @@ public class Menu {
     int userId = Integer.parseInt(scan.nextLine());
     User user = userDao.getUserByID(userId);
     System.out.println(
-        user.getUserId()
-            + " | "
+        "User ID)"
+            + user.getUserId()
+            + " First Name: "
             + user.getFirstName()
-            + " | "
+            + " | Last Name: "
             + user.getLastName()
-            + " | "
+            + " | Email Address: "
             + user.getEmailAddress()
-            + " | "
+            + " | Phone Number: "
             + user.getPhoneNumber());
-  }
-
-  private void getTodosByUserId() throws SQLException {
-    System.out.println("Enter the User ID to view Todos.");
-    int userId = Integer.parseInt(scan.nextLine());
-    List<Todo> todos = todoDao.getTodoByUserId(userId);
-    for (Todo todo : todos) {
-      System.out.println("To-Do ID) " + todo.getTodoId() + " | To-Do: " + todo + " | Created On: " + todo.getCreatedDate());
-    }
   }
 
   private void addNewUser() throws SQLException {
@@ -141,16 +136,30 @@ public class Menu {
     System.out.println("New todo added successfully!");
   }
 
+  private void getTodosByUserId() throws SQLException {
+    System.out.println("Enter the User ID to view Todos.");
+    int userId = Integer.parseInt(scan.nextLine());
+
+    Todo todos = (Todo) todoDao.getTodoByUserId(userId);
+
+    System.out.println(
+            "Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n"
+                    + todos.getUserId()
+                    + todos.getTodoId()
+                    + todos.getTodoContent()
+                    + todos.getCreatedDate()
+                    + todos.getStatusId());
+  }
+
   private void updateTodoStatus() throws SQLException {
     System.out.println("To-Do Status: 1 = Open, 2 = Completed, 3 = Abandoned.");
-    System.out.println("Enter the new todo status. Remember to use the correct value!");
-    int status = Integer.parseInt(scan.nextLine());
     System.out.println("Enter the todo ID you want to change the status on.");
     int todoId = Integer.parseInt(scan.nextLine());
+    System.out.println("Enter the new todo status. Remember to use the correct value!");
+    int status = Integer.parseInt(scan.nextLine());
     todoDao.updateTodoStatus(status, todoId);
     System.out.println("To-Do status updated successfully!");
   }
-
 
   private void deleteTodoById() throws SQLException {
     System.out.println("Enter the Todo ID you want to delete: ");
@@ -158,5 +167,4 @@ public class Menu {
     todoDao.deleteTodoById(todoId);
     System.out.println("Todo was successfully deleted!");
   }
-
 }

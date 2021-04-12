@@ -1,14 +1,11 @@
 package entity;
 
-import java.util.List;
-
 public class User {
     private int userId;
     private String firstName;
     private String lastName;
     private String emailAddress;
     private String phoneNumber;
-    private List<Todo> todoByUserId;
 
     public User(int userId, String firstName, String lastName, String emailAddress, String phoneNumber){
         this.userId = userId;
@@ -20,7 +17,6 @@ public class User {
 
     public User(String firstName, String lastName, String emailAddy, String phoneNum) {
     }
-
 
     public int getUserId() {
         return userId;

@@ -10,16 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 public class TodoDao {
   private Connection conn = null;
   private PreparedStatement ps = null;
   private ResultSet rs = null;
-  private static UserDao userDao;
-  private User user;
-  private List<Todo> todos;
-  Scanner scan = new Scanner(System.in);
   private final String GET_TODOS_BY_USER_ID = "SELECT * FROM todos WHERE user_id = ?";
   private final String INSERT_TODO = "INSERT INTO todos (todo_content, user_id) VALUES(?, ?)";
   private final String UPDATE_TODO_STATUS = "UPDATE todos SET status_id = ? WHERE todo_id = ?";
@@ -34,8 +29,29 @@ public class TodoDao {
     ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
     ps.setInt(1, userId);
     rs = ps.executeQuery();
-     while (rs.next()){
-      todos.add(new Todo(rs.getInt(1), rs.getString(2)));
+
+    try {
+      System.out.println("Status: 1 = Open, 2 = Completed, 3 = Abandoned.");
+
+      while (rs.next()) {
+        System.out.println(
+                "---------------------------------" +
+            " \nUser ID: "
+                + rs.getInt("user_id")
+                + "\n---------------------------------"
+                + "\nTo-Do ID: "
+                + rs.getInt("todo_id")
+                + "\n To-Do: "
+                + rs.getString("todo_content")
+                + "\n Created: "
+                + rs.getDate("created_date")
+                + "\nStatus: "
+                + rs.getInt("status_id")
+                + "\n---------------------------------");
+      }
+    } catch (SQLException throwables) {
+      System.out.println("Error when running SelectAllUsers()...");
+      throwables.printStackTrace();
     }
 
     return todos;
@@ -55,18 +71,13 @@ public class TodoDao {
   }
 
   public void addNewTodoToUser(int userId, String todoContent) throws SQLException {
-    List<Todo> todos = new ArrayList<>();
     ps = conn.prepareStatement(INSERT_TODO);
     ps.setInt(2, userId);
     ps.setString(1, todoContent);
   }
 
-  public Todo populateTodo(String todoContent) {
-    return new Todo(todoContent);
+  public Todo populateTodo(
+      int todoId, String todoContent, Date createdDate, int userId, int statusId) {
+    return new Todo(todoId, todoContent, createdDate, userId, statusId);
   }
-
-
-
-
-
 }
