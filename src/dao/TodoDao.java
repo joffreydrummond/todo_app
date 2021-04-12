@@ -31,23 +31,26 @@ public class TodoDao {
     rs = ps.executeQuery();
 
     try {
-      System.out.println("Status: 1 = Open, 2 = Completed, 3 = Abandoned.");
+
       while (rs.next()) {
-        System.out.println(
-                "---------------------------------" +
-            " \nUser ID: "
-                + rs.getInt("user_id")
-                + "\n---------------------------------"
-                + "\nTo-Do ID: "
-                + rs.getInt("todo_id")
-                + "\n To-Do: "
-                + rs.getString("todo_content")
-                + "\n Created: "
-                + rs.getDate("created_date")
-                + "\nStatus: "
-                + rs.getInt("status_id")
-                + "\n---------------------------------");
+        todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5)));
+
       }
+//        System.out.println(
+////                "---------------------------------" +
+////            " \nUser ID: "
+////                + rs.getInt("user_id")
+////                + "\n---------------------------------"
+////                + "\nTo-Do ID: "
+////                + rs.getInt("todo_id")
+////                + "\n To-Do: "
+////                + rs.getString("todo_content")
+////                + "\n Created: "
+////                + rs.getDate("created_date")
+////                + "\nStatus: "
+////                + rs.getInt("status_id")
+////                + "\n---------------------------------");
+//      }
     } catch (SQLException throwables) {
       System.out.println("Error when running SelectAllUsers()...");
       throwables.printStackTrace();

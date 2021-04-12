@@ -96,4 +96,13 @@ public class Todo {
     }
 
 
+    @Override
+    public String toString() {
+        return (todoId +
+                "\t\t" + todoContent +
+                "\t\t" + createdDate +
+                "\t\t" + userId +
+                "\t\t" + statusId
+                );
+    }
 }

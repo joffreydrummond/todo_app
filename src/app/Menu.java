@@ -28,6 +28,8 @@ public class Menu {
           "Update Todo Status",
           "Delete Todo",
           "Close Connection");
+  private Object List;
+  private List<Todo> Todo;
 
   public Menu() throws SQLException {}
 
@@ -146,16 +148,29 @@ public class Menu {
     System.out.println("Enter the User ID to view Todos.");
     int userId = Integer.parseInt(scan.nextLine());
 
-    Todo todos = (Todo) todoDao.getTodoByUserId(userId);
+//    List<Todo> todos1 = new ArrayList<>();
+
+    List<Todo> todos = todoDao.getTodoByUserId(userId);
+
+    System.out.println("Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n");
+    System.out.printf("%s", "test");
+    System.out.println("\nId\t\tContent\t\tDate Created\t\tUserId\t\tStatusId");
+    for (Todo todo: todos) {
+
+      System.out.println(todo);
+    }
 
 
-    System.out.println(
-            "Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n"
-                    + todos.getUserId()
-                    + todos.getTodoId()
-                    + todos.getTodoContent()
-                    + todos.getCreatedDate()
-                    + todos.getStatusId());
+
+
+//    System.out.println(
+//            "Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n"
+//
+//                    + todos.getUserId()
+//                    + todos.getTodoId()
+//                    + todos.getTodoContent()
+//                    + todos.getCreatedDate()
+//                    + todos.getStatusId());
   }
 
   private void updateTodoStatus() throws SQLException {
