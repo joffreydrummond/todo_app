@@ -11,7 +11,7 @@ public class UserDao {
   private PreparedStatement ps = null;
   private ResultSet rs = null;
   private final String SHOW_ALL_USERS = "SELECT * FROM users";
-//  private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
+  //  private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
   private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
 
   private final String DELETE_USER_BY_ID = "DELETE FROM users WHERE user_id = ? ";
@@ -28,18 +28,14 @@ public class UserDao {
     try {
       System.out.println("Querying all users from DB...");
       while (rs.next()) {
-        System.out.println(
-            "User ID: "
-                + rs.getInt("user_id")
-                + "\nFirst Name: "
-                + rs.getString("first_name")
-                + "\nLast Name: "
-                + rs.getString("last_name")
-                + "\nEmail Address: "
-                + rs.getString("email_address")
-                + "\nPhone "
-                + "Number: "
-                + rs.getString("phone_number"));
+
+        users.add(
+            new User(
+                rs.getInt("user_id"),
+                rs.getString("first_name"),
+                rs.getString("last_name"),
+                rs.getString("email_address"),
+                rs.getString("phone_number")));
       }
     } catch (SQLException throwables) {
       System.out.println("Error when running SelectAllUsers()...");
@@ -75,8 +71,8 @@ public class UserDao {
 
   public void closeConn() throws SQLException {
     System.out.println("Closing the DB connection....");
-        conn.close();
-        System.out.println("DB connection has successfully disconnected.");
+    conn.close();
+    System.out.println("DB connection has successfully disconnected.");
   }
 
   public User populateUser(

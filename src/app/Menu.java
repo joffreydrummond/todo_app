@@ -100,8 +100,6 @@ public class Menu {
     System.out.println("Enter the User ID of who you want to view.");
     int userId = Integer.parseInt(scan.nextLine());
     User user = userDao.getUserByID(userId);
-
-//    List<User> user = userDao.getUserByID(userId);
     System.out.println(
         "User ID: "
             + user.getUserId()
@@ -147,30 +145,17 @@ public class Menu {
   private void getTodosByUserId() throws SQLException {
     System.out.println("Enter the User ID to view Todos.");
     int userId = Integer.parseInt(scan.nextLine());
-
-//    List<Todo> todos1 = new ArrayList<>();
-
     List<Todo> todos = todoDao.getTodoByUserId(userId);
+    System.out.println("---------------------------------------------------------");
+    System.out.print("Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n");
+    System.out.println("---------------------------------------------------------");
 
-    System.out.println("Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n");
-    System.out.printf("%s", "test");
-    System.out.println("\nId\t\tContent\t\tDate Created\t\tUserId\t\tStatusId");
     for (Todo todo: todos) {
-
+      System.out.printf("%5s %5s %20s %10s %5s", "Todo Id", "Content", "Date Created", "User ID", "Status ID\n");
       System.out.println(todo);
+      System.out.println("---------------------------------------------------------");
     }
-
-
-
-
-//    System.out.println(
-//            "Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n"
-//
-//                    + todos.getUserId()
-//                    + todos.getTodoId()
-//                    + todos.getTodoContent()
-//                    + todos.getCreatedDate()
-//                    + todos.getStatusId());
+    System.out.println("---------------------------------------------------------");
   }
 
   private void updateTodoStatus() throws SQLException {

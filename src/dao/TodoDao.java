@@ -29,28 +29,11 @@ public class TodoDao {
     ps = conn.prepareStatement(GET_TODOS_BY_USER_ID);
     ps.setInt(1, userId);
     rs = ps.executeQuery();
-
     try {
-
       while (rs.next()) {
-        todos.add(new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5)));
-
+        todos.add(
+            new Todo(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5)));
       }
-//        System.out.println(
-////                "---------------------------------" +
-////            " \nUser ID: "
-////                + rs.getInt("user_id")
-////                + "\n---------------------------------"
-////                + "\nTo-Do ID: "
-////                + rs.getInt("todo_id")
-////                + "\n To-Do: "
-////                + rs.getString("todo_content")
-////                + "\n Created: "
-////                + rs.getDate("created_date")
-////                + "\nStatus: "
-////                + rs.getInt("status_id")
-////                + "\n---------------------------------");
-//      }
     } catch (SQLException throwables) {
       System.out.println("Error when running SelectAllUsers()...");
       throwables.printStackTrace();
@@ -78,8 +61,5 @@ public class TodoDao {
     ps.executeUpdate();
   }
 
-  public Todo populateTodo(
-      int todoId, String todoContent, Date createdDate, int userId, int statusId) {
-    return new Todo(todoId, todoContent, createdDate, userId, statusId);
-  }
+
 }
