@@ -76,10 +76,6 @@ public class Menu {
     }
   }
 
-
-
-
-
   private void showAllUsers() throws SQLException {
     List<User> users = userDao.showAllUsers();
     for (User user : users) {
@@ -150,8 +146,9 @@ public class Menu {
     System.out.print("Status: 1 = Open, 2 = Completed, 3 = Abandoned.\n");
     System.out.println("---------------------------------------------------------");
 
-    for (Todo todo: todos) {
-      System.out.printf("%5s %5s %20s %10s %5s", "Todo Id", "Content", "Date Created", "User ID", "Status ID\n");
+    for (Todo todo : todos) {
+      System.out.printf(
+          "%5s %5s %20s %10s %5s", "Todo Id", "Content", "Date Created", "User ID", "Status ID\n");
       System.out.println(todo);
       System.out.println("---------------------------------------------------------");
     }

@@ -11,9 +11,7 @@ public class UserDao {
   private PreparedStatement ps = null;
   private ResultSet rs = null;
   private final String SHOW_ALL_USERS = "SELECT * FROM users";
-  //  private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
   private final String SHOW_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
-
   private final String DELETE_USER_BY_ID = "DELETE FROM users WHERE user_id = ? ";
   private final String INSERT_NEW_USER =
       "INSERT INTO users(first_name, last_name, email_address, phone_number) VALUES" + "(?,?,?,?)";
