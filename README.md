@@ -1,8 +1,8 @@
 # todo_app
 
-CLI - To-Do App
-Open the terminal.....
-Use the Controls.......
+##############################
+## CLI To-Do App
+##############################
 
 1) Show All Users
 2) Show User by ID
