@@ -1,7 +1,8 @@
 # todo_app
 
 ##############################
-## CLI To-Do App
+## CLI To-Do App - 
+## load schema to start
 ##############################
 
 1) Show All Users
