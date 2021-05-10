@@ -14,7 +14,7 @@ public class TodoDao {
   private ResultSet rs = null;
   private final String GET_TODOS_BY_USER_ID = "SELECT * FROM todos WHERE user_id = ?";
   private final String INSERT_TODO = "INSERT INTO todos (todo_content, user_id) VALUES(?, ?)";
-  private final String UPDATE_TODO_STATUS = "UPDATE todos SET status_id = ? WHERE todo_id = ?";
+//  private final String UPDATE_TODO_STATUS = "UPDATE todos SET status_id = ? WHERE todo_id = ?";
   private final String DELETE_TODO = "DELETE FROM todos WHERE todo_id = ?";
 
   public TodoDao() throws SQLException {
@@ -36,13 +36,6 @@ public class TodoDao {
       throwables.printStackTrace();
     }
     return todos;
-  }
-
-  public void updateTodoStatus(int statusId, int todoId) throws SQLException {
-    ps = conn.prepareStatement(UPDATE_TODO_STATUS);
-    ps.setInt(1, statusId);
-    ps.setInt(2, todoId);
-    ps.executeUpdate();
   }
 
   public void deleteTodoById(int todoId) throws SQLException {

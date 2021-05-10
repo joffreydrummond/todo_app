@@ -1,6 +1,7 @@
 package app;
 
 import dao.DBConnection;
+import dao.StatusDao;
 import dao.TodoDao;
 import dao.UserDao;
 import entity.Todo;
@@ -16,6 +17,7 @@ import java.util.Scanner;
 public class Menu {
   private Scanner scan = new Scanner(System.in);
   private TodoDao todoDao = new TodoDao();
+  private StatusDao statusDao = new StatusDao();
   private UserDao userDao = new UserDao();
   private List<String> options =
       Arrays.asList(
@@ -161,7 +163,7 @@ public class Menu {
     int todoId = Integer.parseInt(scan.nextLine());
     System.out.println("Enter the new todo status. Remember to use the correct value!");
     int status = Integer.parseInt(scan.nextLine());
-    todoDao.updateTodoStatus(status, todoId);
+    statusDao.updateTodoStatus(status, todoId);
     System.out.println("To-Do status updated successfully!");
   }
 
